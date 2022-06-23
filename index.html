@@ -54,6 +54,21 @@
         <div class="update-mssg"></div>
       </form>
     </div>
+    <script src="https://www.gstatic.com/firebasejs/5.8.4/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.8.4/firebase-firestore.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyDSOkEI1rhbVjLiOToLnEL5OpIKjtboUVA",
+        authDomain: "sandbox-52a0c.firebaseapp.com",
+        databaseURL: "https://udemy-js-ab45b.firebaseio.com",
+        projectId: "sandbox-52a0c",
+        storageBucket: "sandbox-52a0c.appspot.com",
+        messagingSenderId: "781095791968",
+      };
+      firebase.initializeApp(config);
+      const db = firebase.firestore();
+    </script>
 
     <script src="scripts/chat.js"></script>
     <script src="scripts/ui.js"></script>
