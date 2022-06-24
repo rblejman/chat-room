@@ -16,14 +16,17 @@ class Chatroom {
     return response;
   }
   getChats(callback) {
-    this.chats.onSnapshot((snapshot) => {
-      snapshot.docChanges().forEach((change) => {
-        if (change.type === "added") {
-          //update UI
-          callback(change.doc.data());
-        }
+    this.chats
+      .where("room", "==", this.room)
+      .orderBy("created_at")
+      .onSnapshot((snapshot) => {
+        snapshot.docChanges().forEach((change) => {
+          if (change.type === "added") {
+            //update UI
+            callback(change.doc.data());
+          }
+        });
       });
-    });
   }
 }
 
