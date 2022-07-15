@@ -19,7 +19,7 @@ newChatForm.addEventListener("submit", (e) => {
 });
 
 // update username
-newNameForm.addEventListener("submite", (e) => {
+newNameForm.addEventListener("submit", (e) => {
   e.preventDefault();
   const newName = newNameForm.name.value.trim();
   chatroom.updateName(newName);
@@ -30,9 +30,12 @@ newNameForm.addEventListener("submite", (e) => {
   }, 3000);
 });
 
+// check local storage for name
+const username = localStorage.username ? localStorage.username : "Anonymous";
+
 // class instances
 const chatUI = new ChatUI(chatList);
-const chatroom = new Chatroom("general", "rodrigo");
+const chatroom = new Chatroom("general", username);
 
 //get chats and render
 chatroom.getChats((data) => chatUI.render(data));
